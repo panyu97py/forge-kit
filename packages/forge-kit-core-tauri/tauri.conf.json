@@ -12,7 +12,9 @@
   "app": {
     "windows": [
       {
-        "title": "tauri-app",
+        "title": "",
+        "decorations": true,
+        "titleBarStyle": "Overlay",
         "width": 800,
         "height": 600
       }

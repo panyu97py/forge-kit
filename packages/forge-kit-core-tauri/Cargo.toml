@@ -1,5 +1,5 @@
 [package]
-name = "tauri-app"
+name = "forge-kit-core-tauri"
 version = "0.1.0"
 description = "A Tauri App"
 authors = ["you"]
