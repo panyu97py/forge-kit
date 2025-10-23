@@ -1,0 +1,17 @@
+{
+  "name": "forge-kit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @forge-kit/core-web dev",
+    "build": "pnpm --filter @forge-kit/core-web build",
+    "preview": "pnpm --filter @forge-kit/core-web preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}
