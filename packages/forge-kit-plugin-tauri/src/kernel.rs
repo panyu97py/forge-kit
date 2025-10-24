@@ -3,14 +3,16 @@ use libloading::Library;
 use std::any::Any;
 use std::collections::HashMap;
 use std::error::Error;
-use tauri::App;
+use tauri::AppHandle;
 
-trait PluginRegistry {
+pub trait PluginRegistry {
     // 加载插件
-    fn load_plugin(&mut self, path: &str) -> Result<(), Box<dyn Error>>;
+    fn load_plugin(&mut self, name: &str, path: &str) -> Result<(), Box<dyn Error>>;
 }
 
-struct Kernel {
+pub struct Kernel {
+    // tauri app 实例
+    app: AppHandle,
     // 已注册的方法映射
     methods: HashMap<String, Box<AnyFunc>>,
     // 已加载的插件映射
@@ -19,14 +21,23 @@ struct Kernel {
     _libs: Vec<Library>,
 }
 
+impl Kernel {
+    pub fn new(app: AppHandle) -> Self {
+        let methods = HashMap::new();
+        let plugins = HashMap::new();
+        let _libs = Vec::new();
+        return Self { app, methods, plugins, _libs };
+    }
+}
+
 impl PluginRegistry for Kernel {
-    fn load_plugin(&mut self, path: &str) -> Result<(), Box<dyn Error>> {
+    fn load_plugin(&mut self, name: &str, path: &str) -> Result<(), Box<dyn Error>> {
         todo!()
     }
 }
 
 impl PluginContext for Kernel {
-    fn get_tauri_app(&self) -> Box<App> {
+    fn get_tauri_app(&self) -> Box<AppHandle> {
         todo!()
     }
 

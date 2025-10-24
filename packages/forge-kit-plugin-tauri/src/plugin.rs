@@ -1,6 +1,6 @@
 use std::any::Any;
 use std::error::Error;
-use tauri::App;
+use tauri::AppHandle;
 pub type AnyFunc = Box<dyn Fn(&[Box<dyn Any>]) -> Box<dyn Any> + Send + Sync>;
 pub trait Plugin {
     // 插件名称
@@ -15,7 +15,7 @@ pub trait Plugin {
 
 pub trait PluginContext {
 
-    fn get_tauri_app(&self) -> Box<App>;
+    fn get_tauri_app(&self) -> Box<AppHandle>;
 
     // 注册方法
     fn register_method(&self, name: &str, method: &AnyFunc) -> Result<(), Box<dyn Error>>;
