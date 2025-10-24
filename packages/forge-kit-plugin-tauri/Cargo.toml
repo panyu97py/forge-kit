@@ -1,6 +1,12 @@
 [package]
 name = "forge-kit-plugin-tauri"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2024"
 
+[lib]
+name = "forge_kit_plugin_tauri"
+crate-type = ["rlib"]   # 普通 Rust 库（默认）
+
 [dependencies]
+tauri = { version = "2", features = [] }
+libloading = "0.8"
