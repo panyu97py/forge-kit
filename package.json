@@ -7,7 +7,7 @@
     "dev": "pnpm --filter @forge-kit/core-web dev",
     "build": "pnpm --filter @forge-kit/core-web build",
     "preview": "pnpm --filter @forge-kit/core-web preview",
-    "tauri": "tauri"
+    "tauri:dev": "tauri dev"
   },
   "dependencies": {
   },

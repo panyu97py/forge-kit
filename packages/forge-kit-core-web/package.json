@@ -1,7 +1,7 @@
 {
   "name": "@forge-kit/core-web",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@forge-kit/plugin-web": "workspace:*",
     "@radix-ui/themes": "^3.2.1",
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-opener": "^2",

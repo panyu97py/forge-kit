@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "packages/forge-kit-core-tauri",
+    "packages/forge-kit-plugin-tauri",
+]
+[workspace.dependencies]
+forge-kit-plugin-tauri = { path = "packages/forge-kit-plugin-tauri" }
