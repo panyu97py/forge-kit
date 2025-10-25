@@ -7,7 +7,7 @@ pub trait Plugin {
     fn name(&self) -> &str;
 
     // 注册插件
-    fn register(&self, context: Box<dyn PluginContext>) -> Result<(), Box<dyn Error>>;
+    fn register(&self, context: &mut dyn PluginContext) -> Result<(), Box<dyn Error>>;
 
     // 卸载插件
     fn unregister(&self) -> Result<(), Box<dyn Error>>;
@@ -18,8 +18,8 @@ pub trait PluginContext {
     fn get_tauri_app(&self) -> Box<AppHandle>;
 
     // 注册方法
-    fn register_method(&self, name: &str, method: &AnyFunc) -> Result<(), Box<dyn Error>>;
+    fn register_method(&mut self, name: &str, method: AnyFunc) -> Result<(), Box<dyn Error>>;
 
     // 调用方法
-    fn invoke_method(&self, name: &str, args: &[Box<dyn Any>]) -> Box<dyn Any>;
+    fn invoke_method(&self, name: &str, args: Option<&[Box<dyn Any>]>) -> Result<(), Box<dyn Error>> ;
 }
